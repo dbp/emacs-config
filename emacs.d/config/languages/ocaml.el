@@ -1,12 +1,15 @@
 (use-package tuareg :ensure t)
 (use-package merlin :ensure t)
+(use-package ocp-indent :ensure t)
 
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
+(if (executable-find "opam")
+    (progn (setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
+           (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 
-(setq opam-bin (substring (shell-command-to-string "opam config var bin 2> /dev/null") 0 -1))
-(setenv "PATH" (concat (getenv "PATH") ":" opam-bin))
-(setq exec-path (append exec-path '(opam-bin)))
+           (setq opam-bin (substring (shell-command-to-string "opam config var bin 2> /dev/null") 0 -1))
+           (setenv "PATH" (concat (getenv "PATH") ":" opam-bin))
+           (setq exec-path (append exec-path '(opam-bin)))))
+
 ;; Load merlin-mode
 (require 'merlin)
 ;; Start merlin on ocaml files

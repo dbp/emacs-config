@@ -13,5 +13,6 @@
 (add-hook 'proof-ready-for-assistant-hook (lambda () (show-paren-mode 0)))
 
 
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+(if (executable-find "agda-mode")
+    (load-file (let ((coding-system-for-read 'utf-8))
+                 (shell-command-to-string "agda-mode locate"))))

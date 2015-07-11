@@ -13,12 +13,14 @@
 (use-package company :ensure t)
 (use-package popwin :ensure t)
 (use-package multi-term :ensure t)
+(use-package exec-path-from-shell :ensure t)
 
 ;; Misc Packages
 (use-package markdown-mode :ensure t)
 
 
 ;; Global Configuration
+(exec-path-from-shell-initialize)
 (server-start)
 (set-default-font "Inconsolata-14")
 (type-break-mode)
@@ -49,6 +51,10 @@
 (setq tramp-default-method "ssh")
 (setq tramp-auto-save-directory "~/.tramp-autosave")
 (add-hook 'after-init-hook 'global-company-mode)
+(setq magit-last-seen-setup-instructions "1.4.0")
+;; ;; NOTE(dbp 2015-07-01): Split vertically.
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 0)
 
 ;; Global bindings
 (global-set-key (kbd "C-x g") 'magit-status)

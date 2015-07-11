@@ -4,6 +4,7 @@
 (use-package company-inf-ruby :ensure t)
 (use-package scss-mode :ensure t)
 (use-package haml-mode :ensure t)
+(use-package rvm :ensure t)
 
 (setq scss-compile-at-save nil)
 
