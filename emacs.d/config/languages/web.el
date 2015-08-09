@@ -1,13 +1,9 @@
 (use-package web-mode :ensure t)
 (setq js-indent-level 2)
 
-;; for web editing
-(setq mweb-default-major-mode 'html-mode)
-(setq mweb-tags
-  '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
-    (js-mode  "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
-    (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
-(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5" "tpl"))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
 
 ;; require mode for urweb
 (if (file-directory-p "~/dropbox/config/urweb-mode")
