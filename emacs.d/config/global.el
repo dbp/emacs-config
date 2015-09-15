@@ -14,6 +14,7 @@
 (use-package popwin :ensure t)
 (use-package multi-term :ensure t)
 (use-package exec-path-from-shell :ensure t)
+(use-package flycheck :ensure t)
 
 ;; Misc Packages
 (use-package markdown-mode :ensure t)
@@ -245,7 +246,6 @@
  '(helm-ff-file-name-history-use-recentf t)
  '(helm-ff-search-library-in-sexp t)
  '(helm-locate-command "locate %s -e -A %s")
- '(helm-match-plugin-mode t nil (helm-match-plugin))
  '(helm-mode t)
  '(helm-move-to-line-cycle-in-source t)
  '(helm-quick-update t)
