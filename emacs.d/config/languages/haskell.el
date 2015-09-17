@@ -1,6 +1,6 @@
 (use-package haskell-mode :ensure t)
 (use-package company-ghc :ensure t)
-(use-package flycheck-ghc :ensure t)
+(use-package flycheck-ghcmod :ensure t)
 
 (if nil
     (if (file-directory-p "~/code/stack-ide/stack-mode")
