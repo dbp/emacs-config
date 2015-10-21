@@ -1,7 +1,8 @@
 (use-package haskell-mode :ensure t)
 (use-package company-ghc :ensure t)
-(use-package flycheck-ghcmod :ensure t)
+(use-package ghc :ensure t)
 
+;; NOTE(dbp 2015-10-21): stack-ide doesn't seem to be working yet... Too bad :(
 (if nil
     (if (file-directory-p "~/code/stack-ide/stack-mode")
         (progn (add-to-list 'load-path "~/code/stack-ide/stack-mode/")
@@ -10,6 +11,11 @@
                (add-hook 'haskell-mode-hook 'stack-mode)))
   )
 
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(add-hook 'haskell-mode-hook (lambda () (add-to-list 'company-backends 'company-ghc)))
+
+(setq haskell-stylish-on-save t)
+
 (if (file-directory-p "~/code/structured-haskell-mode/elisp")
     (progn
       (add-to-list 'load-path "~/code/structured-haskell-mode/elisp")
@@ -17,9 +23,6 @@
 
       (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
-      ;; NOTE(dbp 2015-04-28): ghc-mod doesn't seem to be working...
-      ;;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-      (setq haskell-stylish-on-save t)
       (set-face-background 'shm-current-face "#eee8d5")
       (set-face-background 'shm-quarantine-face "lemonchiffon")
 
@@ -36,37 +39,5 @@
       ))
 
 
-(progn
-  (add-to-list 'company-backends 'company-ghci)
-  (eval-after-load "haskell-mode"
-    '(progn
-       (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-       (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-       (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-       (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-       (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-       (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-       (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-       (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
-
-  )
-
 ;; heist templates are html
 (add-to-list 'auto-mode-alist '("[.]tpl$" . web-mode))
-
-(defun org-babel-execute:haskell-simple (body params)
-  (let* ((tangle (cdr (assoc :tangle params)))
-         (script-file
-          (if (string-equal tangle "no")
-              (org-babel-temp-file "org-babel-" ".hs")
-            tangle)))
-    (with-temp-file script-file
-      (insert body))
-    (let* ((pn (org-babel-process-file-name script-file))
-           (cmd (format "/home/dbp/ghc/bin/runghc %s" pn)))
-      (message cmd)
-      (shell-command-to-string cmd)
-      )))
-(defun my-org-confirm-babel-evaluate (lang body)
-    (not (string= lang "haskell-simple")))
-(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
