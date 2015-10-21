@@ -22,6 +22,7 @@
 
 ;; Global Configuration
 (exec-path-from-shell-initialize)
+(exec-path-from-shell-copy-env "cabal_helper_libexecdir")
 (server-start)
 (set-default-font "Inconsolata-14")
 (type-break-mode)
