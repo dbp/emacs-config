@@ -24,7 +24,7 @@
 (exec-path-from-shell-initialize)
 (server-start)
 (set-default-font "Inconsolata-14")
-(type-break-mode)
+; (type-break-mode)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
