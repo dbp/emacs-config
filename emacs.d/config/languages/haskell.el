@@ -36,7 +36,9 @@
          (if (not (eq last-command 'yank))
              (error "Previous command was not a yank (error from shm/yank-pop)"))
          (shm-insert-indented #'yank-pop)))
-      ))
+      )
+  (progn
+    (add-hook 'haskell-mode-hook 'haskell-indentation-mode)))
 
 
 ;; heist templates are html
