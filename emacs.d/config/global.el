@@ -211,6 +211,8 @@
 
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-my-mini)
+;; NOTE(dbp 2015-10-22): Because it's super annoying to accidentally hold down the C.
+(global-set-key (kbd "C-x C-b") 'helm-my-mini)
 
 (require 'popwin)
 (popwin-mode 1)
