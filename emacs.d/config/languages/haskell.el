@@ -1,18 +1,11 @@
 (use-package haskell-mode :ensure t)
 (use-package company-ghc :ensure t)
 (use-package ghc :ensure t)
+(use-package popup :ensure t)
 
-;; NOTE(dbp 2015-10-21): stack-ide doesn't seem to be working yet... Too bad :(
-(if nil
-    (if (file-directory-p "~/code/stack-ide/stack-mode")
-        (progn (add-to-list 'load-path "~/code/stack-ide/stack-mode/")
-               (use-package popup :ensure t)
-               (require 'stack-mode)
-               (add-hook 'haskell-mode-hook 'stack-mode)))
-  )
-
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-(add-hook 'haskell-mode-hook (lambda () (add-to-list 'company-backends 'company-ghc)))
+(add-to-list 'load-path "~/.emacs.d/vendor/stack-mode/")
+(require 'stack-mode)
+(add-hook 'haskell-mode-hook 'stack-mode)
 
 (setq haskell-stylish-on-save t)
 
