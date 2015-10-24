@@ -1,3 +1,3 @@
 all:
 	mkdir -p ~/.emacs.d
-	cp -R emacs.d/* ~/.emacs.d/
+	cp -R * ~/.emacs.d/
