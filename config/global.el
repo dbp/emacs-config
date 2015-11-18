@@ -54,8 +54,8 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (setq magit-last-seen-setup-instructions "1.4.0")
 ;; ;; NOTE(dbp 2015-07-01): Split vertically.
-(setq split-height-threshold nil)
-(setq split-width-threshold 80)
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 80)
 
 ;; Global bindings
 (global-set-key (kbd "C-x g") 'magit-status)
