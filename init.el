@@ -14,6 +14,7 @@
   (require 'use-package))
 
 (load "~/.emacs.d/config/global.el")
+(load "~/.emacs.d/config/autosave.el")
 (load "~/.emacs.d/config/languages/haskell.el")
 (load "~/.emacs.d/config/languages/ocaml.el")
 (load "~/.emacs.d/config/languages/ruby.el")
