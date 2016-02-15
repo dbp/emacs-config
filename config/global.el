@@ -1,27 +1,24 @@
 ;; Global Packages
-(use-package projectile :ensure t)
-(projectile-global-mode)
+(use-package company :ensure t)
+(use-package exec-path-from-shell :ensure t)
+(use-package flycheck :ensure t)
 (use-package helm :ensure t)
 (use-package helm-ag :ensure t)
 (use-package helm-projectile :ensure t)
-(use-package magit :ensure t)
 (use-package highlight-parentheses :ensure t)
+(use-package highlight-symbol :ensure t)
+(use-package magit :ensure t)
+(use-package markdown-mode :ensure t)
+(use-package multi-term :ensure t)
 (use-package multiple-cursors :ensure t)
+(use-package popwin :ensure t)
+(use-package projectile :ensure t)
 (use-package smart-mode-line :ensure t)
 (use-package solarized-theme :ensure t)
-(use-package popwin :ensure t)
-(use-package company :ensure t)
-(use-package popwin :ensure t)
-(use-package multi-term :ensure t)
-(use-package exec-path-from-shell :ensure t)
-(use-package flycheck :ensure t)
-(use-package highlight-symbol :ensure t)
-
-;; Misc Packages
-(use-package markdown-mode :ensure t)
 
 
 ;; Global Configuration
+(projectile-global-mode)
 (exec-path-from-shell-initialize)
 (server-start)
 (set-default-font "Inconsolata-14")

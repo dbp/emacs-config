@@ -318,7 +318,7 @@ Run `M-x stack-mode-list-loaded-modules' to see what's loaded.")))
              `((tag . "RequestGetLoadedModules")
                (contents
                 . [])))))))
-    (pop-to-buffer (stack-mode-buffer))
+    ;(pop-to-buffer (stack-mode-buffer))
     (stack-mode-log "Loaded modules: %s"
                     (mapconcat #'identity
                                (sort (mapcar #'identity modules) #'string<)
@@ -1018,7 +1018,7 @@ Pushes the previous file and point onto `find-tag-marker-ring'."
                   (progn
                     (setq any-errors t)
                     (save-excursion
-                      (pop-to-buffer (get-buffer-create "*stack-compile-error*"))
+                      ;(pop-to-buffer (get-buffer-create "*Flycheck error messages*"))
                       (special-mode)
                       (let ((inhibit-read-only t))
                         (erase-buffer)
