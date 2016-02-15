@@ -7,7 +7,6 @@
 (use-package helm-projectile :ensure t)
 (use-package highlight-parentheses :ensure t)
 (use-package highlight-symbol :ensure t)
-(use-package magit :ensure t)
 (use-package markdown-mode :ensure t)
 (use-package multi-term :ensure t)
 (use-package multiple-cursors :ensure t)
@@ -60,9 +59,9 @@
 ;; return should indent as well
 (global-set-key (kbd "RET") 'newline-and-indent)
 ;; this means you go to the beginning of the code, not the beginning of the line
-(global-set-key (kbd "C-a") 'back-to-indentation)
+(global-set-key (kbd "C-S-a") 'back-to-indentation)
 ; with shift, actually go to the beginning of line
-(global-set-key (kbd "C-S-a") 'beginning-of-line)
+(global-set-key (kbd "C-a") 'beginning-of-line)
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
