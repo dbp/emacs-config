@@ -21,7 +21,7 @@
 (projectile-global-mode)
 (exec-path-from-shell-initialize)
 (server-start)
-(set-default-font "Inconsolata-14")
+(set-default-font "Inconsolata-20")
 ; (type-break-mode)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
