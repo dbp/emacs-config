@@ -194,15 +194,15 @@
   (let ((helm-ff-transformer-show-only-basename nil))
     (helm-other-buffer
      (if (eq nil (ignore-errors (projectile-project-root)))
-         '(helm-c-source-buffers-list
-           helm-c-source-recentf
-           helm-c-source-files-in-current-dir
+         '(helm-source-buffers-list
+           helm-source-recentf
+           helm-source-files-in-current-dir
            helm-source-buffer-not-found)
        '(helm-source-projectile-buffers-list
          helm-source-projectile-recentf-list
          helm-source-projectile-files-list
-         helm-c-source-buffers-list
-         helm-c-source-recentf
+         helm-source-buffers-list
+         helm-source-recentf
          helm-source-buffer-not-found))
      "*helm-my-mini*")))
 

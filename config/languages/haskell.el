@@ -4,8 +4,8 @@
 (use-package popup :ensure t)
 
 (add-to-list 'load-path "~/.emacs.d/vendor/stack-mode/")
-(require 'stack-mode)
-(add-hook 'haskell-mode-hook 'stack-mode)
+;(require 'stack-mode)
+;(add-hook 'haskell-mode-hook 'stack-mode)
 
 (setq haskell-stylish-on-save t)
 

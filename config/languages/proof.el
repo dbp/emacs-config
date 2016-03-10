@@ -18,3 +18,4 @@
                  (shell-command-to-string "agda-mode locate"))))
 
 (use-package idris-mode :ensure t)
+(use-package jonprl-mode :ensure t)
