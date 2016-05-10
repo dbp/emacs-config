@@ -49,7 +49,7 @@
 (put 'downcase-region 'disabled nil)
 (setq tramp-default-method "ssh")
 (setq tramp-auto-save-directory "~/.tramp-autosave")
-(add-hook 'after-init-hook 'global-company-mode)
+;(add-hook 'after-init-hook 'global-company-mode)
 (setq magit-last-seen-setup-instructions "1.4.0")
 (setq highlight-symbol-idle-delay 0.2)
 (setq global-linum-mode t)

@@ -3,7 +3,14 @@
 (use-package ghc :ensure t)
 (use-package popup :ensure t)
 
-(add-to-list 'load-path "~/.emacs.d/vendor/stack-mode/")
+(add-to-list 'load-path "~/.emacs.d/vendor/flycheck-stack")
+(require 'flycheck-stack)
+(add-hook 'haskell-mode-hook 'haskell-mode-flycheck-stack)
+(defun haskell-mode-flycheck-stack ()
+  (flycheck-select-checker 'stack)
+  (flycheck-mode))
+
+;(add-to-list 'load-path "~/.emacs.d/vendor/stack-mode/")
 ;(require 'stack-mode)
 ;(add-hook 'haskell-mode-hook 'stack-mode)
 
