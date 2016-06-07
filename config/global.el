@@ -15,6 +15,7 @@
 (use-package projectile :ensure t)
 (use-package smart-mode-line :ensure t)
 (use-package solarized-theme :ensure t)
+(use-package spaceline :ensure t)
 
 
 ;; Global Configuration
@@ -23,6 +24,9 @@
 (server-start)
 (set-default-font "Inconsolata-20")
 (setq multi-term-program-switches "--login")
+
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
