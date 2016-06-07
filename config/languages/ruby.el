@@ -5,6 +5,8 @@
 (use-package scss-mode :ensure t)
 (use-package haml-mode :ensure t)
 (use-package rvm :ensure t)
+(use-package bundler :ensure t)
+(use-package rake :ensure t)
 
 (setq scss-compile-at-save nil)
 
@@ -26,3 +28,7 @@
 
 ;; http://emacs.stackexchange.com/questions/3537/how-do-you-run-pry-from-emacs
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+(setq auto-mode-alist
+      (append '(("\\.erb$" . web-mode))
+              auto-mode-alist))

@@ -26,6 +26,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(global-linum-mode t)
+ '(helm-ff-fuzzy-matching t)
+ '(helm-ff-guess-ffap-filenames nil)
+ '(helm-ff-guess-ffap-urls nil)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

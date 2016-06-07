@@ -22,6 +22,10 @@
 (exec-path-from-shell-initialize)
 (server-start)
 (set-default-font "Inconsolata-20")
+(setq multi-term-program-switches "--login")
+
+(add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
 ; (type-break-mode)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
@@ -38,7 +42,7 @@
   uniquify-separator ":")
 ;; don't use tabs, ever
 (setq-default indent-tabs-mode nil)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook '(lambda () (if (not (equal major-mode 'latex-mode)) (delete-trailing-whitespace))))
 ;; no backup file vomit
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
