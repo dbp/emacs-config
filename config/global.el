@@ -25,6 +25,12 @@
 (set-default-font "Inconsolata-20")
 (setq multi-term-program-switches "--login")
 
+;; waste less space on Git
+(defadvice vc-mode-line (after strip-backend () activate)
+    (when (stringp vc-mode)
+      (let ((gitlogo (replace-regexp-in-string "^ Git." "" vc-mode)))
+        (setq vc-mode gitlogo))))
+
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
 
