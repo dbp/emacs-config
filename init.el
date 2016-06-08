@@ -35,4 +35,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:background "#eee8d5" :foreground "#657b83" :box (:line-width 1 :color "#eee8d5" :style unspecified) :overline "#eee8d5" :underline nil))))
+ '(mode-line-inactive ((t (:background "#fdf6e3" :foreground "#93a1a1" :box (:line-width 1 :color "#fdf6e3" :style unspecified) :overline "#eee8d5" :underline nil)))))
