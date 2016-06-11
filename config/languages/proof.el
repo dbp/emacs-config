@@ -23,3 +23,5 @@
 
 (use-package idris-mode :ensure t)
 (use-package jonprl-mode :ensure t)
+(use-package company-coq :ensure t)
+(add-hook 'coq-mode-hook #'company-coq-mode)
