@@ -13,6 +13,7 @@
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))
 
+(add-hook 'ruby-mode-hook 'flycheck-mode)
 
 (eval-after-load 'inf-ruby
   '(define-key inf-ruby-minor-mode-map
