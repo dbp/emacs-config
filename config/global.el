@@ -13,17 +13,32 @@
 (use-package multiple-cursors :ensure t)
 (use-package popwin :ensure t)
 (use-package projectile :ensure t)
+(use-package persp-projectile :ensure t)
 (use-package smart-mode-line :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package spaceline :ensure t)
 
-
 ;; Global Configuration
 (projectile-global-mode)
+(persp-mode)
+(require 'persp-projectile)
+(define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
+(winner-mode)
+
 (exec-path-from-shell-initialize)
 (server-start)
 (set-default-font "Inconsolata-20")
+
+;; NOTE(dbp 2016-06-27): To get color code issues resolved, might need to do:
+;; tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti
 (setq multi-term-program-switches "--login")
+(when (require 'term nil t) ; only if term can be loaded..
+  (setq term-bind-key-alist
+        (list (cons "<C-left>" 'term-send-backward-word)
+              (cons "<C-right>" 'term-send-forward-word)
+              (cons "<C-up>" 'previous-line)
+              (cons "<C-down>" 'next-line)
+              (cons "C-r" 'term-send-reverse-search-history))))
 
 ;; waste less space on Git
 (defadvice vc-mode-line (after strip-backend () activate)
@@ -91,7 +106,7 @@
 (global-set-key (kbd "M-;") 'comment-or-uncomment-region-or-line)
 (global-set-key [M-up] 'move-line-up)
 (global-set-key [M-down] 'move-line-down)
-
+(global-set-key (kbd "<s-return>") 'multi-term)
 
 ;; Color Theme
 (defun solarized-toggle ()
