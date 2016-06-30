@@ -17,13 +17,33 @@
 (use-package smart-mode-line :ensure t)
 (use-package solarized-theme :ensure t)
 (use-package spaceline :ensure t)
+(use-package fancy-battery :ensure t)
+(use-package bm :ensure Global)
 
-;; Global Configuration
+;; Configuration
 (projectile-global-mode)
 (persp-mode)
 (require 'persp-projectile)
 (define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
+(persp-turn-off-modestring)
+(defun persp-terminal-toggle ()
+  "Switches between buffer perspective and terminal perspective"
+  (interactive)
+  (when (projectile-project-p)
+    (if (string= (concat (projectile-project-name) "-term") (persp-name persp-curr))
+        (persp-switch (projectile-project-name))
+      (persp-switch (concat (projectile-project-name) "-term")))
+    )
+  )
+(global-set-key (kbd "s-t") 'persp-terminal-toggle)
+
 (winner-mode)
+(fancy-battery-mode)
+(setq fancy-battery-show-percentage t)
+
+(setq bm-cycle-all-buffers t)
+(global-set-key (kbd "M-j") 'bm-toggle)
+(global-set-key (kbd "C-M-j")   'bm-next)
 
 (exec-path-from-shell-initialize)
 (server-start)
@@ -48,6 +68,8 @@
 
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
+(spaceline-toggle-minor-modes-off)
+(display-time-mode)
 
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 

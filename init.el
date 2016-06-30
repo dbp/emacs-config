@@ -25,6 +25,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bm-highlight-style (quote bm-highlight-only-fringe))
  '(company-minimum-prefix-length 2)
  '(css-indent-offset 2)
  '(global-linum-mode t)
@@ -32,6 +33,7 @@
  '(helm-ff-guess-ffap-filenames nil)
  '(helm-ff-guess-ffap-urls nil)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(temporary-bookmark-p t)
  '(web-mode-css-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
