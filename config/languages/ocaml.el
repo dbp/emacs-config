@@ -11,7 +11,8 @@
            (setq exec-path (append exec-path '(opam-bin)))))
 
 ;; Load merlin-mode
-(require 'merlin)
+(autoload 'merlin-mode "merlin" nil t nil)
+(setq merlin-command 'opam)
 ;; Start merlin on ocaml files
 (add-hook 'tuareg-mode-hook 'merlin-mode t)
 (add-hook 'caml-mode-hook 'merlin-mode t)

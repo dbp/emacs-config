@@ -18,7 +18,6 @@
 (use-package solarized-theme :ensure t)
 (use-package spaceline :ensure t)
 (use-package fancy-battery :ensure t)
-(use-package bm :ensure Global)
 
 ;; Configuration
 (projectile-global-mode)
@@ -37,6 +36,7 @@
   )
 (global-set-key (kbd "s-t") 'persp-terminal-toggle)
 
+(setq visible-bell t)
 (winner-mode)
 (fancy-battery-mode)
 (setq fancy-battery-show-percentage t)
@@ -47,7 +47,7 @@
 
 (exec-path-from-shell-initialize)
 (server-start)
-(set-default-font "Inconsolata-20")
+(set-frame-font "Inconsolata-20" t t)
 
 ;; NOTE(dbp 2016-06-27): To get color code issues resolved, might need to do:
 ;; tic -o ~/.terminfo /Applications/Emacs.app/Contents/Resources/etc/e/eterm-color.ti
@@ -58,7 +58,9 @@
               (cons "<C-right>" 'term-send-forward-word)
               (cons "<C-up>" 'previous-line)
               (cons "<C-down>" 'next-line)
-              (cons "C-r" 'term-send-reverse-search-history))))
+              (cons "C-r" 'term-send-reverse-search-history)
+              (cons "C-c C-c"  'term-interrupt-subjob)
+              (cons "C-y" 'term-paste))))
 
 ;; waste less space on Git
 (defadvice vc-mode-line (after strip-backend () activate)
@@ -90,6 +92,20 @@
 ;; don't use tabs, ever
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook '(lambda () (if (not (equal major-mode 'latex-mode)) (delete-trailing-whitespace))))
+
+(defun my-latex-setup ()
+  (defun latex-word-count ()
+    (interactive)
+    (let* ((this-file (buffer-file-name))
+           (word-count
+            (with-output-to-string
+              (with-current-buffer standard-output
+                (call-process "texcount" nil t nil "-brief" this-file)))))
+      (string-match "\n$" word-count)
+      (message (replace-match "" nil nil word-count))))
+    (define-key LaTeX-mode-map "\C-cw" 'latex-word-count))
+(add-hook 'LaTeX-mode-hook 'my-latex-setup t)
+
 ;; no backup file vomit
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
