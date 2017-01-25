@@ -19,31 +19,36 @@
 (use-package spaceline :ensure t)
 (use-package fancy-battery :ensure t)
 
+(use-package racket-mode
+  :mode "\\.rkt\\'"
+  :ensure t)
+
+
 ;; Configuration
 (projectile-global-mode)
-(persp-mode)
-(require 'persp-projectile)
-(define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
-(persp-turn-off-modestring)
-(defun persp-terminal-toggle ()
-  "Switches between buffer perspective and terminal perspective"
-  (interactive)
-  (when (projectile-project-p)
-    (if (string= (concat (projectile-project-name) "-term") (persp-name persp-curr))
-        (persp-switch (projectile-project-name))
-      (persp-switch (concat (projectile-project-name) "-term")))
-    )
-  )
-(global-set-key (kbd "s-t") 'persp-terminal-toggle)
+;; (persp-mode)
+;; (require 'persp-projectile)
+;; (define-key projectile-mode-map (kbd "C-c p p") 'projectile-persp-switch-project)
+;; (persp-turn-off-modestring)
+;; (defun persp-terminal-toggle ()
+;;   "Switches between buffer perspective and terminal perspective"
+;;   (interactive)
+;;   (when (projectile-project-p)
+;;     (if (string= (concat (projectile-project-name) "-term") (persp-name persp-curr))
+;;         (persp-switch (projectile-project-name))
+;;       (persp-switch (concat (projectile-project-name) "-term")))
+;;     )
+;;   )
+;; (global-set-key (kbd "s-t") 'persp-terminal-toggle)
 
 (setq visible-bell t)
 (winner-mode)
 (fancy-battery-mode)
 (setq fancy-battery-show-percentage t)
 
-(setq bm-cycle-all-buffers t)
-(global-set-key (kbd "M-j") 'bm-toggle)
-(global-set-key (kbd "C-M-j")   'bm-next)
+;; (setq bm-cycle-all-buffers t)
+;; (global-set-key (kbd "M-j") 'bm-toggle)
+;; (global-set-key (kbd "C-M-j")   'bm-next)
 
 (exec-path-from-shell-initialize)
 (server-start)

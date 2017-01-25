@@ -26,7 +26,14 @@
     (load-file (let ((coding-system-for-read 'utf-8))
                  (shell-command-to-string "agda-mode locate"))))
 
-(use-package idris-mode :ensure t)
-(use-package jonprl-mode :ensure t)
-(use-package company-coq :ensure t)
-(add-hook 'coq-mode-hook #'company-coq-mode)
+(use-package idris-mode
+  :ensure t
+  :mode "\\.idr\\'")
+(use-package jonprl-mode
+  :ensure t
+  :mode "\\.jonprl\\'")
+(use-package company-coq
+  :ensure t
+  :mode "\\.v\\'"
+  :config
+  (add-hook 'coq-mode-hook #'company-coq-mode))

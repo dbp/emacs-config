@@ -1,14 +1,34 @@
-(use-package inf-ruby :ensure t)
-(use-package robe :ensure t)
-(use-package rspec-mode :ensure t)
-(use-package company-inf-ruby :ensure t)
-(use-package scss-mode :ensure t)
-(use-package haml-mode :ensure t)
-(use-package rvm :ensure t)
-(use-package bundler :ensure t)
-(use-package rake :ensure t)
+(use-package inf-ruby
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package robe
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package rspec-mode
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package company-inf-ruby
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package scss-mode
+  :ensure t
+  :mode "\\.scss\\'"
+  :config
+  (setq scss-compile-at-save nil))
+(use-package haml-mode
+  :ensure t
+  :mode "\\.haml\\'")
+(use-package rvm
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package bundler
+  :ensure t
+  :mode "\\.rb\\'")
+(use-package rake
+  :ensure t
+  :mode "\\.rb\\'")
 
-(setq scss-compile-at-save nil)
+
 
 (add-hook 'ruby-mode-hook
           (lambda () (rvm-activate-corresponding-ruby)))

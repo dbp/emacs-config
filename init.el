@@ -14,6 +14,7 @@
   (require 'use-package))
 
 (load "~/.emacs.d/config/global.el")
+(load "~/.emacs.d/config/org.el")
 ; (load "~/.emacs.d/config/autosave.el")
 (load "~/.emacs.d/config/languages/haskell.el")
 (load "~/.emacs.d/config/languages/ocaml.el")
@@ -32,9 +33,12 @@
  '(helm-ff-fuzzy-matching t)
  '(helm-ff-guess-ffap-filenames nil)
  '(helm-ff-guess-ffap-urls nil)
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org")))
  '(package-selected-packages
    (quote
-    (scala-mode web-mode use-package tuareg tea-time spaceline solarized-theme smart-mode-line scss-mode rvm rspec-mode robe rake racket-mode popwin persp-projectile ocp-indent multiple-cursors multi-term merlin markdown-mode magit llvm-mode jonprl-mode intero idris-mode highlight-symbol highlight-parentheses helm-projectile helm-ag haml-mode fancy-battery exec-path-from-shell company-web company-inf-ruby company-coq bundler auctex)))
+    (org-bullets intero scala-mode web-mode use-package tuareg tea-time spaceline solarized-theme smart-mode-line scss-mode rvm rspec-mode robe rake racket-mode popwin persp-projectile ocp-indent multiple-cursors multi-term merlin markdown-mode magit llvm-mode jonprl-mode idris-mode highlight-symbol highlight-parentheses helm-projectile helm-ag haml-mode fancy-battery exec-path-from-shell company-web company-inf-ruby company-coq bundler auctex)))
  '(safe-local-variable-values (quote ((TeX-master . "funtal") (encoding . utf-8))))
  '(temporary-bookmark-p t)
  '(web-mode-css-indent-offset 2))
