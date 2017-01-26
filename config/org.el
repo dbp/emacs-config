@@ -7,7 +7,7 @@
          (two-prior (format-time-string (car org-time-stamp-formats) (time-subtract date-input (* 3600 24 14))))
          (one-prior (format-time-string (car org-time-stamp-formats) (time-subtract date-input (* 3600 24 7))))
          (day-prior (format-time-string (car org-time-stamp-formats) (time-subtract date-input (* 3600 24)))))
-    (format "* %s: %s\n** TODO %s: Get title/abstract/bio\n   DEADLINE: %s\n** TODO %s: Post to website\n   DEADLINE: %s\n** %s: TODO Coordinate lunch\n   DEADLINE: %s\n** %s: TODO 2 week announcement\n   DEADLINE: %s\n** %s: TODO 1 week announcement\n   DEADLINE: %s\n** %s: TODO 1 day announcement\n   DEADLINE: %s"
+    (format "* %s: %s\n** TODO %s: Get title/abstract/bio\n   SCHEDULED: %s\n** TODO %s: Post to website\n   SCHEDULED: %s\n** %s: TODO Coordinate lunch\n   SCHEDULED: %s\n** %s: TODO 2 week announcement\n   SCHEDULED: %s\n** %s: TODO 1 week announcement\n   SCHEDULED: %s\n** %s: TODO 1 day announcement\n   SCHEDULED: %s"
    short-date name name three-prior name two-prior name two-prior name two-prior name one-prior name day-prior)))
 
 (use-package org-bullets :ensure t)

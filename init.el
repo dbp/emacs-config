@@ -33,9 +33,8 @@
  '(helm-ff-fuzzy-matching t)
  '(helm-ff-guess-ffap-filenames nil)
  '(helm-ff-guess-ffap-urls nil)
- '(org-agenda-files
-   (quote
-    ("~/Dropbox/org")))
+ '(org-agenda-files (quote ("~/Dropbox/org")))
+ '(org-agenda-todo-ignore-scheduled (quote future))
  '(package-selected-packages
    (quote
     (org-bullets intero scala-mode web-mode use-package tuareg tea-time spaceline solarized-theme smart-mode-line scss-mode rvm rspec-mode robe rake racket-mode popwin persp-projectile ocp-indent multiple-cursors multi-term merlin markdown-mode magit llvm-mode jonprl-mode idris-mode highlight-symbol highlight-parentheses helm-projectile helm-ag haml-mode fancy-battery exec-path-from-shell company-web company-inf-ruby company-coq bundler auctex)))
